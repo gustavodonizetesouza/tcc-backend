@@ -5,9 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.tcc.backend.dominio.Aluno;
 
-/* permite operações de acesso à dados  referentes ao objeto aluno */
+/* permite operacoes de acesso a dados  referentes ao objeto aluno */
 
 @Repository
 public interface AlunoRepositorio extends JpaRepository<Aluno, Integer>{
 	
+	Aluno findByEmail(String email);
 }
