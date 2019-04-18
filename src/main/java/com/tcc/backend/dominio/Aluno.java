@@ -3,8 +3,6 @@ package com.tcc.backend.dominio;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,8 +28,7 @@ public class Aluno implements Serializable{
 	public Aluno() {
 	}
 
-	public Aluno(Integer cpf, String nome, String endereco, String cidade, String uf, String telefone, String email,
-			String senha) {
+	public Aluno(Integer cpf, String nome, String endereco, String cidade, String uf, String telefone, String email, String senha) {
 		super();
 		this.cpf = cpf;
 		this.nome = nome;

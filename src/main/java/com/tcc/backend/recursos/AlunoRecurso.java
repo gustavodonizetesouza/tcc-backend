@@ -1,8 +1,5 @@
 package com.tcc.backend.recursos;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +17,7 @@ public class AlunoRecurso {
 	@Autowired
 	private AlunoServico srv;
 
-	// define o endpoint do método
+	// define o endpoint do mï¿½todo
 	@RequestMapping(value = "/{cpf}", method = RequestMethod.GET)
 	public ResponseEntity<?> buscar(@PathVariable Integer cpf) {
 
