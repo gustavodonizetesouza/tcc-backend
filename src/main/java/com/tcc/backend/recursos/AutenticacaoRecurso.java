@@ -24,6 +24,7 @@ public class AutenticacaoRecurso {
         Usuario user = AlunoServico.authenticated();
         String token = jwtUtil.gerarToken(user.getUsername());
         response.addHeader("Authorization", "Bearer " + token);
+        response.addHeader("access-control-expose-headers", "Authorization");
         return ResponseEntity.noContent().build();
     }
 
