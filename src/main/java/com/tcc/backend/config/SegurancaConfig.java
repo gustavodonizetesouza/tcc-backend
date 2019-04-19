@@ -19,6 +19,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.tcc.backend.seguranca.JWTFiltroAutenticacao;
+import com.tcc.backend.seguranca.JWTFiltroAutorizacao;
 import com.tcc.backend.seguranca.JWTUtil;
 
 @Configuration
@@ -42,7 +43,7 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
 	};
 
 	private static final String[] PUBLICOS_GET = {
-			"/alunos/**"
+			
 	};
 
 	@Override
@@ -58,6 +59,7 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(PUBLICOS).permitAll()
 			.anyRequest().authenticated();
 		http.addFilter(new JWTFiltroAutenticacao(authenticationManager(), jwtUtil));
+		http.addFilter(new JWTFiltroAutorizacao(authenticationManager(), jwtUtil, userDetailsService));
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 	

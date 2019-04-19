@@ -56,7 +56,7 @@ public class JWTFiltroAutenticacao extends UsernamePasswordAuthenticationFilter 
 
 		String username = ((Usuario) auth.getPrincipal()).getUsername();
 		String token = jwtUtil.gerarToken(username);
-		res.addHeader("Autorizacao", "Portador " + token);
+		res.addHeader("Authorization", "Bearer " + token);
 	}
 
 }
