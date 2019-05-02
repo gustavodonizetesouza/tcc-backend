@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 import com.tcc.backend.dominio.Aluno;
 import com.tcc.backend.servicos.AlunoServico;
 
@@ -17,7 +19,7 @@ public class AlunoRecurso {
 	@Autowired
 	private AlunoServico srv;
 
-	// define o endpoint do m�todo
+	// define o endpoint do metodo
 	@RequestMapping(value = "/{cpf}", method = RequestMethod.GET)
 	public ResponseEntity<?> buscar(@PathVariable Integer cpf) {
 
@@ -27,4 +29,12 @@ public class AlunoRecurso {
 		return ResponseEntity.ok().body(obj);
 
 	}
+
+	@RequestMapping(method=RequestMethod.GET)
+	public ResponseEntity<List<Aluno>> findAll() {
+		List<Aluno> list = srv.buscarTodos();
+		return ResponseEntity.ok().body(list);
+	}
+
+	
 }
